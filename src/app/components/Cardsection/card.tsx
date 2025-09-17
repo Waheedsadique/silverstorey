@@ -71,9 +71,9 @@ export default function CardPage() {
               <div className="absolute inset-0 bg-black/40"></div>
 
               {/* Label (Top Left) */}
-              <button className="absolute top-3 hover:bg-green-600 right-3 bg-black text-white px-3 py-1 rounded-md text-sm font-medium">
+              <Button className="absolute top-3 hover:bg-[#33634e] right-3 bg-black text-white px-3 py-1 rounded-md text-sm font-lg">
                 {item.label}
-              </button>
+              </Button>
 
               {/* Price & Title (Bottom) */}
               <div className="absolute bottom-4 left-0 right-0  text-white px-4">
