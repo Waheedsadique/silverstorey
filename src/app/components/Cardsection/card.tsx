@@ -1,63 +1,27 @@
-// app/page.tsx  (for Next.js 13+ with /app dir)
 "use client";
 
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
 const items = [
-  {
-    id: 1,
-    title: "Bedroom",
-    price: "2.1 L",
-    image: "/Bed.avif",
-    label: "Bedroom",
-  },
-  {
-    id: 2,
-    title: "Dining",
-    price: "1 L",
-    image: "/Dining.avif",
-    label: "Dining",
-  },
-  {
-    id: 3,
-    title: "Kitchen",
-    price: "1.4 L",
-    image: "/Kitchen.avif",
-    label: "Kitchen",
-  },
-  {
-    id: 4,
-    title: "Bathroom",
-    price: "1.8 L",
-    image: "/Raquel.avif",
-    label: "Bathroom",
-  },
-  {
-    id: 5,
-    title: "Living Room",
-    price: "2.4 L",
-    image: "/Living.avif",
-    label: "Living Room",
-  },
-  {
-    id: 6,
-    title: "Office",
-    price: "2.4 L",
-    image: "/Office.avif",
-    label: "Office",
-  },
+  { id: 1, title: "Bedroom", price: "2.1 L", image: "/Bed.avif", label: "Bedroom" },
+  { id: 2, title: "Dining", price: "1 L", image: "/Dining.avif", label: "Dining" },
+  { id: 3, title: "Kitchen", price: "1.4 L", image: "/Kitchen.avif", label: "Kitchen" },
+  { id: 4, title: "Bathroom", price: "1.8 L", image: "/Raquel.avif", label: "Bathroom" },
+  { id: 5, title: "Living Room", price: "2.4 L", image: "/Living.avif", label: "Living Room" },
+  { id: 6, title: "Office", price: "2.4 L", image: "/Office.avif", label: "Office" },
 ];
 
 export default function CardPage() {
   return (
     <main className="p-6">
+      {/* Always horizontal slider */}
       <div className="w-full overflow-x-auto scrollbar-hide">
         <div className="flex gap-4">
           {items.map((item) => (
             <div
               key={item.id}
-              className="relative min-w-[250px] h-[250px] rounded-xl overflow-hidden shadow-lg"
+              className="relative min-w-[220px] sm:min-w-[250px] h-[220px] sm:h-[250px] rounded-xl overflow-hidden shadow-lg flex-shrink-0"
             >
               {/* Background Image */}
               <Image
@@ -70,15 +34,17 @@ export default function CardPage() {
               {/* Overlay */}
               <div className="absolute inset-0 bg-black/40"></div>
 
-              {/* Label (Top Left) */}
-              <Button className="absolute top-3 hover:bg-[#33634e] right-3 bg-black text-white px-3 py-1 rounded-md text-sm font-lg">
+              {/* Label (Top Right) */}
+              <Button className="absolute top-3 right-3 bg-black/70 hover:bg-[#33634e] text-white px-3 py-1 rounded-md text-sm">
                 {item.label}
               </Button>
 
               {/* Price & Title (Bottom) */}
-              <div className="absolute bottom-4 left-0 right-0  text-white px-4">
-                <p className="text-3xl font-bold">{item.price}</p>
-                <p className="text-2xl">Onwards</p>
+              <div className="absolute bottom-4 left-0 right-0 text-white px-4">
+                <p className="text-xl sm:text-2xl md:text-3xl font-bold">
+                  {item.price}
+                </p>
+                <p className="text-base sm:text-lg md:text-xl">Onwards</p>
               </div>
             </div>
           ))}
